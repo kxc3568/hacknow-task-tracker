@@ -1,0 +1,12 @@
+.banner {
+    background-color: var(--main-color);
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner p {
+    max-width: 30%;
+}
