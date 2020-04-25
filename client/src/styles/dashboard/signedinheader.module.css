@@ -1,6 +1,10 @@
 .header {
     background-color: var(--secondary-color);
-    height: 10vh;
+    height: 15vh;
+}
+
+.brand {
+    padding: 1rem;
 }
 
 .profile, .profile:hover, .profile:active, .profile:visited {

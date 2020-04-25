@@ -1,0 +1,23 @@
+.assignment {
+    margin: 2rem;
+    background-color: var(--main-color);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.milestoneContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.milestoneButton {
+    color: white !important;
+}
+
+.milestone {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: none;
+}
