@@ -7,12 +7,15 @@ class ClassesWrapper extends Component {
 
     componentDidMount() {
         // find classes
-        this.setState({ classes: [] });
+        this.setState({ classes: [
+            { id: 1, name: "Multicore Computing", professorName: "Vijay Garg", courseNumber: "EE 361C" },
+            { id: 2, name: "Software Testing", professorName: "???", courseNumber: "EE 360T" }
+        ] });
     }
 
     render() { 
         return ( <div>
-            { 
+            {
                 this.state.classes == null ? 
                 <Spinner animation="border" role="status"><span className="sr-only">Loading...</span></Spinner> 
                 : <Classes classes={this.state.classes} />
