@@ -129,50 +129,50 @@ app.put('/:classroomId/user', (req, res) => {
 })
 
 // // Upon creating of a room, admin can add assignments to the classroom
-// app.post('/:classroomId/assignment', (req, res) => {
-//     // Should ONLY CAN BE RUN BY THE ADMIN
-//     const assignment = {
-//         assignmentId: crypto.randomBytes(8).toString("hex"),
-//         name: req.body.name,
-//         numParts: req.body.numParts,
-//         dueDate: req.body.dueDate
-//     }; 
+app.post('/:classroomId/assignment', (req, res) => {
+    // Should ONLY CAN BE RUN BY THE ADMIN
+    const assignment = {
+        assignmentId: crypto.randomBytes(8).toString("hex"),
+        name: req.body.name,
+        numParts: req.body.numParts,
+        dueDate: req.body.dueDate
+    }; 
     
-//     // Assignment Created
-//     db.collection('assignments')
-//         .doc(assignment.assignmentId)
-//         .set(assignment)
-//         .then(doc => {
-//             res.json({ message: `document ${assignment.assignmentId} created successfully`});
-//         })
-//         .catch(err => {
-//             res.status(500).json({ error: 'something went wrong'});
-//             console.error(err)
-//         });
+    // Assignment Created
+    db.collection('assignments')
+        .doc(assignment.assignmentId)
+        .set(assignment)
+        .then(doc => {
+            console.log("assignment created successfully");
+        })
+        .catch(err => {
+            res.status(500).json({ error: 'something went wrong'});
+            console.error(err)
+        });
 
-//     // Assignment added under Classroom's "assignment" attribute
-//     db.collection('classrooms')
-//         .doc(req.params.classroomId)
-//         .update({
-//             assignments: admin.firestore.FieldValue.arrayUnion(assignment.assignmentId)
-//         })
-//         .then(() => {
-//             res.json({message: `${assignment.name} added to classroom ${req.params.classroomId}`});
-//         }).catch(err => console.error(err));
+    // Assignment added under Classroom's "assignment" attribute
+    db.collection('classrooms')
+        .doc(req.params.classroomId)
+        .update({
+            assignments: admin.firestore.FieldValue.arrayUnion(assignment.assignmentId)
+        })
+        .then(() => {
+            console.log("assignment binded to classroom successfully");
+        }).catch(err => console.error(err));
 
-//     db.collection('classrooms')
-//         .doc(req.params.classroomId)
-//         .get()
-//         .then(doc => {
-//             doc.data().users.forEach(userId => {
-//                 db.collection('users').doc(userId).get()
-//                     .then(doc => {
-//                         doc.data().assigned[assignment.assignmentId] = new Array(assignment.numParts).fill(0);
-//                     }).catch(err => console.error(err));
-//             return res.json({message: `assignemnt propogated`});
-//             }).catch(err => console.log(err));
-//         }).catch(err => console.log(err));
-// });
+    db.collection('classrooms')
+        .doc(req.params.classroomId)
+        .get()
+        .then(doc => {
+            doc.data().users.forEach(userId => {
+                db.collection('users').doc(userId).update({
+                    [`assignments.${assignment.assignmentId}`]: new Array(assignment.numParts).fill(0) 
+                })
+                .catch(err => console.error(err));
+            return res.json({message: `assignment ${assignment.assignmentId} propogated`});
+            }).catch(err => console.log(err));
+        }).catch(err => console.log(err));
+});
 
 // Function called by a user trying to create a room
 app.post('/:userId/classroom', (req, res) => {
