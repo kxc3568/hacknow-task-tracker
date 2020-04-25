@@ -1,0 +1,14 @@
+.header {
+    background-color: var(--secondary-color);
+    height: 10vh;
+}
+
+.profile, .profile:hover, .profile:active, .profile:visited {
+    width: 3rem; 
+    height: 3rem; 
+    padding: 6px 6px; 
+    border-radius: 1.5rem; 
+    font-size: 8px; 
+    text-align: center;
+    background-color: grey !important;
+}
