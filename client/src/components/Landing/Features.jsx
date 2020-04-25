@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/features.module.css';
+import styles from '../../styles/landing/features.module.css';
 
 const Features = () => {
     return ( <div className={styles.features}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Form, Button, Nav } from 'react-bootstrap';
-import styles from '../../styles/nav.module.css'
+import styles from '../../styles/dashboard/nav.module.css'
 
 const Navigation = () => {
     return ( <Navbar expand="lg" className={styles.nav}>
