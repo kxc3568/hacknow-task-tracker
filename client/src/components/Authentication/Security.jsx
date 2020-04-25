@@ -3,7 +3,7 @@ import Auth from './Auth';
 
 class Security extends Component {
     state = {
-        signedIn: false
+        signedIn: true
     };
 
     componentDidMount() {

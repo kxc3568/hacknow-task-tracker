@@ -1,0 +1,28 @@
+.tabs > a {
+    background-color: var(--lg-color) !important;
+    color: black !important;
+    border-color: var(--lg-color) !important;
+}
+
+.header {
+    height: 12vh;
+    background-color: var(--lg-color);
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+}
+
+.btns {
+    transform: translate(0, 3rem);
+}
+
+.btn {
+    margin: 1rem;
+    border-radius: 1rem;
+}
+
+.clazzContent {
+    display: flex;
+    flex-direction: row;
+    padding-top: 2rem;
+}

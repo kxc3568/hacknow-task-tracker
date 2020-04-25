@@ -1,9 +1,9 @@
 import React from 'react';
 import { Navbar, Form, Button, Nav } from 'react-bootstrap';
-import styles from '../../styles/dashboard/nav.module.css'
+import styles from '../../styles/landing/header.module.css';
 
-const Navigation = () => {
-    return ( <Navbar expand="lg" className={styles.nav}>
+const Header = () => {
+    return ( <Navbar expand="lg" className={styles.header}>
         <Navbar.Brand href="#home"><b>Tasker/Logo</b></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -17,4 +17,4 @@ const Navigation = () => {
     </Navbar> );
 }
  
-export default Navigation;
+export default Header;

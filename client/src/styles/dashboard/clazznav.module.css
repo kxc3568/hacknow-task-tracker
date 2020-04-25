@@ -1,0 +1,15 @@
+.nav {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 2rem;
+}
+
+.nav div {
+    padding: 0.5rem;
+}
+
+a {
+    padding-left: 1rem;
+    color: grey;
+}
