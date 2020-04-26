@@ -9,7 +9,7 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
         </Nav>
-        <Form inline action='/signin'>
+        <Form inline action='/login'>
             <Button variant="link" style={{color: "black"}} type="submit">Sign in</Button>
         </Form>
         <Form inline action='/signup'>

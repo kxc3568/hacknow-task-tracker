@@ -27,7 +27,7 @@ class SignIn extends Component {
     }
 
     render() {
-        return ( <form action='/' onSubmit={this.handleSubmit}>
+        return ( <form action='http://localhost:5000/hack-now-tasker/us-central1/api/login' onSubmit={this.handleSubmit}>
             <input type="text" placeholder="email" ref={this.signinRef}/>
             <Button type="submit">submit</Button>
         </form> );
