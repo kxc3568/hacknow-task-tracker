@@ -4,7 +4,7 @@ const express = require('express');
 const firebase = require('firebase')
 const crypto = require("crypto");
 require('dotenv').config();
-const cors = require(cors());
+const cors = require("cors");
 
 var firebaseConfig = {
     apiKey: process.env.API_KEY,
