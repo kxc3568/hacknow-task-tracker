@@ -38,7 +38,6 @@ app.get('/users', (req, res) => {
                     email: doc.data().email,
                     bio: doc.data().bio,
                     assignments: doc.data().assignments,
-                    roles: doc.data().roles,
                     classes: doc.data().classes
                 });
             });
@@ -259,8 +258,6 @@ app.post('/signup', (req, res) => {
         password: req.body.password,
         confirmPassword: req.body.confirmPassword,
     };
-
-    // TODO: Validation for new user
 
     firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password)
         .then((data) => {

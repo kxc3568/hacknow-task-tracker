@@ -1,6 +1,7 @@
 .assignment {
     margin: 2rem;
-    background-color: var(--main-color);
+    background-color: var(--secondary-color);
+    color: white;
     border-radius: 1rem;
     padding: 1rem;
 }

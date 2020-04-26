@@ -19,6 +19,8 @@
 .btn {
     margin: 1rem;
     border-radius: 1rem;
+    background-color: #FF842A;
+    border-color: white;
 }
 
 .clazzContent {
