@@ -1,5 +1,6 @@
 .header {
     background-color: var(--secondary-color);
+    color: white;
     height: 15vh;
 }
 
