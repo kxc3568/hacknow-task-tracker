@@ -234,6 +234,21 @@ app.put('/:classroomId/user/:userId', async (req, res) => {
         .catch(err => console.error(err));         
 });
 
+// PUT: Endpoint to fill bool array to req.body.milestone
+app.put('/:userId/:assignmentId/updateMilestone', (req, res) => {
+    db.collection('assignments').doc(req.params.assignmentId).get()
+        .then(doc => {
+            assignment = doc.data();
+            let newMilestone = new Array(assignment.numParts).fill(0).fill(1, 0, req.body.milestone);
+            db.collection('users').doc(req.params.userId).update({
+                [`assignments.${req.params.assignmentId}`]: newMilestone
+            }).then(() => {
+                return res.json({message: `updated ${req.params.userId}'s milestones of ${req.params.assignmentId} successfully`});
+            }).catch(err => console.error(err));  
+        }).catch(err => console.error(err));
+           
+});
+
 // Authentication for new user sign-ups
 app.post('/signup', (req, res) => {
     let token, userId
