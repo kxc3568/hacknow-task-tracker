@@ -4,6 +4,7 @@ const express = require('express');
 const firebase = require('firebase')
 const crypto = require("crypto");
 require('dotenv').config();
+const cors = require("cors");
 
 var firebaseConfig = {
     apiKey: process.env.API_KEY,
@@ -22,7 +23,8 @@ admin.initializeApp({
 
 firebase.initializeApp(firebaseConfig);
 const db = admin.firestore()
-const app = express();  
+const app = express();
+app.use(cors());
 
 // GET request: for all users
 app.get('/users', (req, res) => {
