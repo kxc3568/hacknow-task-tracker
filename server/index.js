@@ -6,6 +6,7 @@ const crypto = require("crypto");
 require('dotenv').config();
 const cors = require("cors");
 
+
 var firebaseConfig = {
     apiKey: process.env.API_KEY,
     authDomain: "hack-now-tasker.firebaseapp.com",
@@ -23,7 +24,7 @@ admin.initializeApp({
 
 firebase.initializeApp(firebaseConfig);
 const db = admin.firestore()
-const app = express();
+const app = express();  
 app.use(cors());
 
 // GET request: for all users
@@ -256,8 +257,8 @@ app.post('/signup', (req, res) => {
     const newUser = { 
         email: req.body.email,
         password: req.body.password,
-        confirmPassword: req.body.confirmPassword,
     };
+
 
     firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password)
         .then((data) => {
@@ -277,5 +278,28 @@ app.post('/signup', (req, res) => {
             return res.status(201).json(`User ${userId} has been created`);
         }).catch(err => console.log(err));
 });
+
+app.post('/login', (req, res) => {
+    const user = {
+      email: req.body.email,
+      password: req.body.password,
+    };
+      
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(user.email, user.password)
+      .then((data) => {
+        return data.user.uid;
+      })
+      .then((userId) => {
+        return res.json({ userId });
+      })
+      .catch((err) => {
+        console.error(err);
+        return res
+          .status(403)
+          .json({ general: "Wrong credentials, please try again" });
+      });
+  });
 
 exports.api = functions.https.onRequest(app);
