@@ -3,12 +3,16 @@ import Auth from './Auth';
 
 class Security extends Component {
     state = {
-        signedIn: true
+        signedIn: false,
+        userEmail: null
     };
 
-    componentDidMount() {
+    async componentDidMount() {
         // validate user
         // this.setState({ signedIn: true });
+        if (localStorage.getItem('loggedIn') === 'true') {
+            this.setState({ signedIn: true, userEmail: localStorage.getItem('user') });
+        }
     }
 
     render() { 
