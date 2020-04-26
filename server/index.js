@@ -55,7 +55,8 @@ app.get('/assignments', (req, res) => {
                     assignmentId: doc.data().assignmentId,
                     name: doc.data().name,
                     numParts: doc.data().numParts,
-                    dueDate: doc.data().dueDate
+                    dueDate: doc.data().dueDate,
+                    desc: doc.data().desc
                 });
             });
             return res.json(assignments);
@@ -73,7 +74,9 @@ app.get('/classrooms', (req, res) => {
                     name: doc.data().name,
                     users: doc.data().users,
                     assignments: doc.data().assignments,
-                    admin: doc.data().admin 
+                    admin: doc.data().admin,
+                    professorName: doc.data().professorName,
+                    courseNumber: doc.data().courseNumber
                 })
             })
             return res.json(classrooms);

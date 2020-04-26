@@ -10,7 +10,6 @@ class Clazz extends Component {
 
     render() {
         const { clazz } = this.props;
-        console.log(clazz.people);
 
         return ( <div>
             <div className={styles.header}>
@@ -22,8 +21,8 @@ class Clazz extends Component {
             </div>
             <div className={styles.clazzContent}>
                 <ClassNav />
-                <Assignments assignments={clazz.assignments}/>
-                <People people={clazz.people}/>
+                <Assignments assignments={clazz.assignments} users={clazz.users}/>
+                <People people={clazz.users}/>
             </div>
             
         </div> );

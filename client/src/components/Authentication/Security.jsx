@@ -7,9 +7,7 @@ class Security extends Component {
         userEmail: null
     };
 
-    async componentDidMount() {
-        // validate user
-        // this.setState({ signedIn: true });
+    componentDidMount() {
         if (localStorage.getItem('loggedIn') === 'true') {
             this.setState({ signedIn: true, userEmail: localStorage.getItem('user') });
         }

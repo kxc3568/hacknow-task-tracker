@@ -22,6 +22,7 @@ let db = {
         {
             assignmentID: 'assignmentID',
             title: 'assignment',
+            description: 'description',
             numParts: '4',
             dueDate: '2020-04-26'
         }
@@ -31,6 +32,7 @@ let db = {
         {
             classroomId: 'classroomId',
             className: 'classroom',
+            professorName: 'professor',
             users: ['user1Id', 'user2Id', 'user3Id'],
             assignments: ['assignmentId1', 'assignmentId2', 'assignmentId3'],
             admin: 'adminId'

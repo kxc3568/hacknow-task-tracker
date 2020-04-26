@@ -4,9 +4,13 @@
     border-color: var(--lg-color) !important;
 }
 
+.tabs + div > div:nth-child(1) {
+    display: block !important;
+}
+
 .header {
-    height: 12vh;
-    background-color: var(--lg-color);
+    min-height: 12vh;
+    background-color: var(--lg-color) !important;
     display: flex;
     align-items: center;
     padding-left: 2rem;

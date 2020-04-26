@@ -3,11 +3,10 @@ import { Button } from 'react-bootstrap';
 
 class SignIn extends Component {
 
-    state = {  };
-
     constructor() {
         super();
         this.signinRef = React.createRef();
+        this.submitButtonRef = React.createRef();
     }
 
     handleSubmit = async (e) => {
@@ -15,21 +14,21 @@ class SignIn extends Component {
         const userList = await userListRes.json();
         const input = this.signinRef.current;
         const email = input.value;
-        console.log(email);
         const possibleUsers = userList.filter(user => user.email === email);
-        if (possibleUsers.length == 1) {
+        
+        if (possibleUsers.length === 1) {
             localStorage.setItem('loggedIn', 'true');
             localStorage.setItem('user', email);
-        } else {
-            console.log('not authenticated');
-            e.preventDefault();
         }
+        const button = this.submitButtonRef.current;
+        button.click();
     }
 
     render() {
-        return ( <form action='/' onSubmit={this.handleSubmit}>
+        return ( <form action='/' >
             <input type="text" placeholder="email" ref={this.signinRef}/>
-            <Button type="submit">submit</Button>
+            <Button onClick={this.handleSubmit}>submit</Button>
+            <Button ref={this.submitButtonRef} type="submit" style={{display: "none"}}>submit</Button>
         </form> );
     }
 }
