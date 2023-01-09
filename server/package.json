@@ -18,8 +18,8 @@
     "crypto": "^1.0.1",
     "dotenv": "^8.2.0",
     "firebase": "^7.14.2",
-    "firebase-admin": "^8.10.0",
-    "firebase-functions": "^3.6.0",
+    "firebase-admin": "^11.4.1",
+    "firebase-functions": "^3.24.1",
     "uuidv4": "^6.0.7"
   },
   "devDependencies": {
